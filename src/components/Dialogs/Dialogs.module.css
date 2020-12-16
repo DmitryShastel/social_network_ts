@@ -26,3 +26,15 @@
 .dialog {
     display: flex;
 }
+
+.s {
+    margin: 3px;
+    border-radius: 5px;
+    padding: 0 3px 0 3px;
+    background: gold;
+}
+
+.t {
+    margin: 3px;
+    border-radius: 5px;
+}

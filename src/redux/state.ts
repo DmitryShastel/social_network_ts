@@ -41,7 +41,7 @@ let state: StateType = {
     dialogsPage: {
         messages: [
             {id: 1, message: 'Hi'},
-            {id: 2, message: 'How are your it-camasutra'},
+            {id: 2, message: 'Hi'},
             {id: 3, message: 'Yo'},
             {id: 4, message: 'Yo'},
             {id: 5, message: 'Yo'},
