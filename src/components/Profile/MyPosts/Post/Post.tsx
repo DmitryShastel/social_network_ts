@@ -1,7 +1,12 @@
 import React from "react";
 import s from './Post.module.css';
 
-const Post = (props) => {
+type PropsType = {
+    message: string
+    likesCount: number
+}
+
+const Post = (props: PropsType) => {
     return (
         <div className={s.item}>
             <img src='https://newdaynews.ru/pict/arts1/61/25/612588_b.jpg'/>
