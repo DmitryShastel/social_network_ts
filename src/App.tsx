@@ -10,10 +10,10 @@ import {StateType} from "./redux/state";
 type PropsType = {
     state: StateType
     addPost: (postText: string)=> void
-    changeNewPostText: (props: string) => void
+    updateNewPostText: (props: string) => void
 }
 
-const App = (props: PropsType) => {
+export const App = (props: PropsType) => {
 
    /* let message = state.dialogsPage.messages[0].message
     let message2 = state.dialogsPage.messages[1].message*/
@@ -30,7 +30,7 @@ const App = (props: PropsType) => {
                  render={() => <Profile
                      state={props.state.profilePage}
                      addPost={props.addPost}
-                     changeNewPostText={props.changeNewPostText}/>}/>
+                     changeNewPostText={props.updateNewPostText}/>}/>
 
         </div>
       </div>
