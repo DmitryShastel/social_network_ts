@@ -2,21 +2,17 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {StateType} from "./redux/state";
+import {DispatchType, StateType} from "./redux/state";
+import {Profile} from "./components/Profile/Profile";
 
-type PropsType = {
+type AppType = {
     state: StateType
-    addPost: (postText: string)=> void
-    updateNewPostText: (props: string) => void
+    dispatch:  DispatchType
 }
 
-export const App = (props: PropsType) => {
-
-   /* let message = state.dialogsPage.messages[0].message
-    let message2 = state.dialogsPage.messages[1].message*/
+export const App = (props:AppType) => {
 
   return (
       <div className='app-wrapper'>
@@ -28,16 +24,14 @@ export const App = (props: PropsType) => {
                  render={() => <Dialogs state={props.state.dialogsPage} />}/>
           <Route path='/profile/'
                  render={() => <Profile
-                     state={props.state.profilePage}
-                     addPost={props.addPost}
-                     changeNewPostText={props.updateNewPostText}/>}/>
-
+                     profilePage={props.state.profilePage}
+                     dispatch={props.dispatch} />}/>
         </div>
       </div>
   )
 }
 
-export default App;
+
 
 
 

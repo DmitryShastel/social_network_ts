@@ -17,17 +17,39 @@ export type ProfilePageType = {
 }
 export type DialogPageType = {
     dialogs: Array<DialogType>
-        messages: Array<MessageType>
+    messages: Array<MessageType>
 }
 type SidebarType = {}
- export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogPageType
-    sidebar: SidebarType
-}
-export type SubscribeType = (state: StateType) => void;
 
-let store = {
+ export type StateType = {
+     profilePage: ProfilePageType
+     dialogsPage: DialogPageType
+     sidebar: SidebarType
+}
+
+export type StoreType = {
+    _state: StateType
+    _callSubcsriber: CallSubscriberType
+    getState: GetStateType
+    subscribe: SubscribeType
+    addPost: AddPostType
+    uodateNewPostText: UpdateNewPostTextType
+}
+
+export type CallSubscriberType = () => void;
+export type SubscribeType = (state: StateType) => void;
+export type GetStateType = () => void;
+export type DispatchType = (action: ActionType) => void
+export type AddPostType = () => void
+export type UpdateNewPostTextType = (text: string) => void
+
+export type ActionType = {
+    type: string
+    newText: string
+}
+
+
+export let store = {
     _state: {
         profilePage: {
             newPostText: "",
@@ -55,30 +77,33 @@ let store = {
         },
         sidebar : {}
     },
-    getState() {
-        return this._state;
-    },
     _callSubcsriber(state: StateType) {
         console.log('State was changed')
     },
-    addPost (postText: string)  {
-        const newPost: PostType = {
-            id: new Date().getTime(),
-            message: postText,
-            likesCount: 0
-        };
 
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubcsriber(this._state);
-    },
-    updateNewPostText (newText: string) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubcsriber(this._state);
+    getState() {
+        return this._state;
     },
     subscribe(observer: SubscribeType) {
         this._callSubcsriber = observer;
+    },
+
+    dispatch(action:ActionType) {
+        if (action.type === 'ADD-POST') {
+            const newPost: PostType = {
+                id: new Date().getTime(),
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubcsriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            // this._state.profilePage.newPostText = action.newText;
+            this._state.profilePage = {...this._state.profilePage, newPostText: action.newText};
+            this._callSubcsriber(this._state);
+        }
     }
 }
 
-export default store;
