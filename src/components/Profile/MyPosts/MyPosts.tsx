@@ -1,13 +1,14 @@
 import React from "react";
 import s from './MyPosts.module.css';
 import Post from './Post/Post'
-import {DispatchType, PostType} from "../../../redux/state";
+import {addPostActionCreater, DispatchType, PostType, updateNewPostTextActionCreater} from "../../../redux/state";
 
 type PropsType = {
     posts: Array<PostType>
     newPostText: string
     dispatch: DispatchType
 }
+
 
 const MyPosts = (props:PropsType) => {
 
@@ -17,16 +18,13 @@ const MyPosts = (props:PropsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     let addPost = () => {
-        if (newPostElement.current) {
-            let action = {type: 'ADD-POST', newText: ''}
-            props.dispatch(action)
-        }
+            props.dispatch(addPostActionCreater())
     }
 
-    const newTextChangeHandler = () => {
+    const onPostChange = () => {
         let text = newPostElement.current && newPostElement.current.value;
         if(text) {
-            let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+            let action = updateNewPostTextActionCreater(text);
             props.dispatch(action)
         }
     }
@@ -36,7 +34,7 @@ const MyPosts = (props:PropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} value={props.newPostText} onChange={newTextChangeHandler}/>
+                    <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

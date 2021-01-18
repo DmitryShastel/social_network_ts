@@ -43,10 +43,7 @@ export type DispatchType = (action: ActionType) => void
 export type AddPostType = () => void
 export type UpdateNewPostTextType = (text: string) => void
 
-export type ActionType = {
-    type: string
-    newText: string
-}
+export type ActionType = AddPostActionType | OnPostChangeActionType
 
 
 export let store = {
@@ -89,7 +86,7 @@ export let store = {
     },
 
     dispatch(action:ActionType) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             const newPost: PostType = {
                 id: new Date().getTime(),
                 message: this._state.profilePage.newPostText,
@@ -99,11 +96,32 @@ export let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubcsriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            // this._state.profilePage.newPostText = action.newText;
-            this._state.profilePage = {...this._state.profilePage, newPostText: action.newText};
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText;
+            //this._state.profilePage = {...this._state.profilePage, newPostText: action.newText};
             this._callSubcsriber(this._state);
         }
     }
+}
+
+export type AddPostActionCreaterType = () => AddPostActionType
+export type UpdateNewPostTextActionCreaterType = (text: string) => OnPostChangeActionType
+
+export type AddPostActionType = {
+    type: 'ADD-POST'
+}
+export type OnPostChangeActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newText: string
+}
+
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT =  'UPDATE-NEW-POST-TEXT'
+
+export const addPostActionCreater: AddPostActionCreaterType = () => {
+    return { type: ADD_POST}
+}
+export const updateNewPostTextActionCreater: UpdateNewPostTextActionCreaterType = (text) => {
+    return {type: UPDATE_NEW_POST_TEXT, newText: text}
 }
 
