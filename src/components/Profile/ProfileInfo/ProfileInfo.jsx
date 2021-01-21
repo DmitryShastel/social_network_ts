@@ -4,9 +4,9 @@ import s from './ProfileInfo.module.css';
 const ProfileInfo = () => {
     return (
         <div>
-            <div>
-                <img
-                    src='https://media.gettyimages.com/photos/mountains-and-forest-in-winter-yoho-national-park-field-british-picture-id966225494?s=612x612'/>
+            <div >
+                <img  className={s.img}
+                    src='https://c4.wallpaperflare.com/wallpaper/203/814/445/download-full-size-nature-1920x1200-wallpaper-preview.jpg'/>
             </div>
             <div className={s.descriptionBlock}>
                 ava + description

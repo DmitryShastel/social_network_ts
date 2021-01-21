@@ -1,23 +1,22 @@
 import React from "react";
 import './index.css'
 import ReactDOM from 'react-dom';
-import './index.css';
 import {BrowserRouter} from "react-router-dom";
-import {StateType, store} from "./redux/state";
+import  {StateType, store} from "./redux/state";
 import {App} from "./App";
 
 
-let rerenderEntireTree = (state: StateType) => {
+export let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)} store={store}/>
         </BrowserRouter>,
         document.getElementById("root")
     )
 }
 
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 store.subscribe(rerenderEntireTree);
 
 

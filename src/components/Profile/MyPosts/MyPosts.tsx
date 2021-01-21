@@ -10,7 +10,7 @@ type PropsType = {
 }
 
 
-const MyPosts = (props:PropsType) => {
+export const MyPosts = (props:PropsType) => {
 
     let postsElement =
         props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
@@ -48,4 +48,3 @@ const MyPosts = (props:PropsType) => {
 }
 
 
-export default MyPosts;

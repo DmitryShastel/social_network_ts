@@ -8,7 +8,6 @@ const Message = (props) => {
             {props.message}
             <textarea className={s.t}></textarea>
             <button className={s.s}>Sent</button>
-
         </div>
     )
 }
