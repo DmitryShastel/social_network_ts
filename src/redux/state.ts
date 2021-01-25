@@ -1,3 +1,7 @@
+import {profileReducer} from "./profile-reducer";
+import {gialogReducer} from "./dialogs-reducer";
+import {sidebarReducer} from "./sidebar-reducer";
+
 export type MessageType = {
     id: number
     message: string
@@ -20,7 +24,7 @@ export type DialogPageType = {
     messages: Array<MessageType>
     newMessageBody: string
 }
-type SidebarType = {}
+export type SidebarType = {}
 
 export type StateType = {
     profilePage: ProfilePageType
@@ -92,32 +96,13 @@ export let store: StoreType = {
     },
 
     dispatch(action: ActionType) {
-        if (action.type === ADD_POST) {
-            const newPost: PostType = {
-                id: new Date().getTime(),
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = gialogReducer(this._state.dialogsPage, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
 
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubcsriber();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubcsriber();
-
-        } else if (action.type === SEND_MESSAGE) {
-            let body = this._state.dialogsPage.newMessageBody;
-            this._state.dialogsPage.newMessageBody = '';
-            this._state.dialogsPage.messages.push({id: 6, message: body});
-            this._callSubcsriber();
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._state.dialogsPage.newMessageBody = action.body;
-            this._callSubcsriber();
-        }
+        this._callSubcsriber();
     }
 }
-
 
 export type AddPostActionCreaterType = () => AddPostActionType
 export type UpdateNewPostTextActionCreaterType = (text: string) => OnPostChangeActionType
@@ -141,14 +126,14 @@ export type SendMessageActionType = {
 
 
 //actions:
-const ADD_POST = 'ADD-POST'
+/*const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
-const SEND_MESSAGE = 'SEND-MESSAGE'
+const SEND_MESSAGE = 'SEND-MESSAGE'*/
 
 
 //actionsCreaters:
-export const addPostActionCreater: AddPostActionCreaterType = () => {
+/*export const addPostActionCreater: AddPostActionCreaterType = () => {
     return {type: ADD_POST}
 }
 export const updateNewPostTextActionCreater: UpdateNewPostTextActionCreaterType = (text) => {
@@ -159,5 +144,30 @@ export const sendMessageActionCreator: SendMessageActionCreatorType = () => {
 }
 export const updateNewMessageBodyActionCreator: UpdateNewMessageBodyActionCreatorType = (body) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, body: body}
-}
+}*/
 
+
+
+/* if (action.type === ADD_POST) {
+          const newPost: PostType = {
+              id: new Date().getTime(),
+              message: this._state.profilePage.newPostText,
+              likesCount: 0
+          };
+
+          this._state.profilePage.posts.push(newPost);
+          this._state.profilePage.newPostText = '';
+          this._callSubcsriber();
+      } else if (action.type === UPDATE_NEW_POST_TEXT) {
+          this._state.profilePage.newPostText = action.newText;
+          this._callSubcsriber();
+
+      } else if (action.type === SEND_MESSAGE) {
+          let body = this._state.dialogsPage.newMessageBody;
+          this._state.dialogsPage.newMessageBody = '';
+          this._state.dialogsPage.messages.push({id: 6, message: body});
+          this._callSubcsriber();
+      } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+          this._state.dialogsPage.newMessageBody = action.body;
+
+      }*/
