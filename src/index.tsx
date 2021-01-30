@@ -2,11 +2,12 @@ import React from "react";
 import './index.css'
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from "react-router-dom";
-import {store} from "./redux/state";
 import {App} from "./App";
+import {store} from "./redux/redux-store";
 
 
 export let rerenderEntireTree = () => {
+    debugger
     ReactDOM.render(
         <BrowserRouter>
             <App state={store.getState()} dispatch={store.dispatch.bind(store)} store={store}/>

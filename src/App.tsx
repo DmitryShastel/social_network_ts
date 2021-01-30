@@ -14,6 +14,7 @@ type AppType = {
 }
 
 export const App = (props:AppType) => {
+    debugger
 
   return (
       <div className='app-wrapper'>

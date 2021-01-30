@@ -1,5 +1,5 @@
 import {
-    ActionType, DialogPageType,
+    ActionType, DialogPageType, DialogsReducerType,
     PostType,
     SendMessageActionCreatorType,
     StateType,
@@ -16,7 +16,26 @@ export const updateNewMessageBodyActionCreator: UpdateNewMessageBodyActionCreato
     return {type: UPDATE_NEW_MESSAGE_BODY, body: body}
 }
 
-export const gialogReducer = (state: DialogPageType, action: ActionType): DialogPageType => {
+let initialState = {
+        dialogs: [
+            {id: 1, name: 'Dimych'},
+            {id: 2, name: 'Andrew'},
+            {id: 3, name: 'Sveta'},
+            {id: 4, name: 'Sasha'},
+            {id: 5, name: 'Viktor'},
+            {id: 6, name: 'Valera'},
+        ],
+        messages: [
+            {id: 1, message: 'Hi'},
+            {id: 2, message: 'Hi'},
+            {id: 3, message: 'Yo'},
+            {id: 4, message: 'Yo'},
+            {id: 5, message: 'Yo'},
+        ],
+        newMessageBody: "",
+}
+
+export const gialogReducer = (state: DialogsReducerType = initialState, action: ActionType): DialogPageType => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
             state.newMessageBody = action.body;
