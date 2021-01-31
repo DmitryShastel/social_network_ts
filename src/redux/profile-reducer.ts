@@ -1,9 +1,9 @@
 import {
     ActionType,
-    AddPostActionCreaterType,
+    AddPostActionCreaterType, OnPostChangeActionType,
     PostType,
-    ProfilePageType, ProfileReducerType,
-    StateType,
+    ProfilePageType,
+    ProfileReducerType,
     UpdateNewPostTextActionCreaterType,
 } from "./state";
 
@@ -13,7 +13,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 export const addPostActionCreater: AddPostActionCreaterType = () => {
     return {type: ADD_POST}
 }
-export const updateNewPostTextActionCreater: UpdateNewPostTextActionCreaterType = (text) => {
+export const updateNewPostTextActionCreater = (text:string):OnPostChangeActionType => {
     return {type: UPDATE_NEW_POST_TEXT, newText: text}
 }
 

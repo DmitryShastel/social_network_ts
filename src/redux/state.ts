@@ -103,7 +103,7 @@ export type ActionType = AddPostActionType
 
 //types ActionsCreators
 export type AddPostActionCreaterType = () => AddPostActionType
-export type UpdateNewPostTextActionCreaterType = (text: string) => OnPostChangeActionType
+export type UpdateNewPostTextActionCreaterType = (text:string) => OnPostChangeActionType
 export type UpdateNewMessageBodyActionCreatorType = (body: string) => UpdateNewMessageBodyType
 export type SendMessageActionCreatorType = () => SendMessageActionType
 
@@ -116,6 +116,8 @@ export type OnPostChangeActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
 }
+
+
 export type UpdateNewMessageBodyType = {
     type: 'UPDATE-NEW-MESSAGE-BODY'
     body: string
