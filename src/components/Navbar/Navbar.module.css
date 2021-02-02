@@ -1,4 +1,5 @@
 .nav {
+    font-size: larger;
     grid-area: n;
     background-color: mediumspringgreen;
     padding: 20px;

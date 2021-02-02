@@ -3,17 +3,16 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Route} from "react-router-dom";
-import {DispatchType, StateType, StoreType} from "./redux/state";
 import {Profile} from "./components/Profile/Profile";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
-type AppType = {
+/*type AppType = {
     state: StateType
     dispatch:  DispatchType
     store: StoreType
-}
+}*/
 
-export const App = (props:AppType) => {
+export const App: React.FC = () => {
     debugger
 
   return (
@@ -23,9 +22,9 @@ export const App = (props:AppType) => {
         <div className="app-wrapper-content">
 
           <Route path='/dialogs/'
-                 render={() => <DialogsContainer store={props.store} />}/>
+                 render={() => <DialogsContainer/>}/>
           <Route path='/profile/'
-                 render={() => <Profile store={props.store}/>}/>
+                 render={() => <Profile/>}/>
         </div>
       </div>
   )

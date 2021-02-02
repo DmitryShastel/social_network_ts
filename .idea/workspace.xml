@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81034f75-93dc-4d7f-b571-13a68e654fa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +123,7 @@
       <workItem from="1611848612248" duration="10751000" />
       <workItem from="1611947796594" duration="1816000" />
       <workItem from="1612002756082" duration="11978000" />
+      <workItem from="1612075897443" duration="8175000" />
     </task>
     <servers />
   </component>
@@ -138,33 +139,33 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="422" y="103" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1610160426918" />
-    <state x="430" y="118" key="FileChooserDialogImpl" timestamp="1612019044435">
+    <state x="430" y="118" key="FileChooserDialogImpl" timestamp="1612106716881">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="430" y="118" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612019044435" />
-    <state width="1259" height="243" key="GridCell.Tab.0.bottom" timestamp="1612019047496">
+    <state x="430" y="118" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612106716881" />
+    <state width="1086" height="242" key="GridCell.Tab.0.bottom" timestamp="1612106719443">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="243" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612019047496" />
-    <state width="1259" height="243" key="GridCell.Tab.0.center" timestamp="1612019047496">
+    <state width="1086" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612106719443" />
+    <state width="1086" height="242" key="GridCell.Tab.0.center" timestamp="1612106719442">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="243" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612019047496" />
-    <state width="1259" height="243" key="GridCell.Tab.0.left" timestamp="1612019047495">
+    <state width="1086" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612106719442" />
+    <state width="1086" height="242" key="GridCell.Tab.0.left" timestamp="1612106719441">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="243" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612019047495" />
-    <state width="1259" height="243" key="GridCell.Tab.0.right" timestamp="1612019047496">
+    <state width="1086" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612106719441" />
+    <state width="1086" height="242" key="GridCell.Tab.0.right" timestamp="1612106719443">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="243" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612019047496" />
+    <state width="1086" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612106719443" />
     <state x="90" y="0" width="1107" height="680" key="SettingsEditor" timestamp="1610781591939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="90" y="0" width="1107" height="680" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1610781591939" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1610802550102">
+    <state x="297" y="151" key="run.anything.popup" timestamp="1612084475525">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1610802550102" />
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1612084475525" />
   </component>
 </project>

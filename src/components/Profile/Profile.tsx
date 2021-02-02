@@ -7,12 +7,12 @@ type ProfilePropsType = {
     store: StoreType
 }
 
-export const Profile = (props: ProfilePropsType) => {
+export const Profile: React.FC = () => {
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer/>
         </div>
     )
 }
