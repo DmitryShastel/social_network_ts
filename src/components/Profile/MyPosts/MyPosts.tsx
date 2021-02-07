@@ -7,7 +7,7 @@ import {DispatchType, PostType, StoreType} from "../../../redux/state";
 type MyPostsPropsType = {
     posts: Array<PostType>
     newPostText: string
-    updateNewPostTextActionCreater: (text:string) => void
+    onPostChange: (text:string) => void
     addPost: () => void
 }
 
@@ -25,7 +25,7 @@ export const MyPosts = (props:MyPostsPropsType) => {
 
     const onPostChange = () => {
         let text = newPostElement.current && newPostElement.current.value;
-        text && props.updateNewPostTextActionCreater(text);
+        text && props.onPostChange(text);
     }
 
     return (

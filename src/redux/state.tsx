@@ -116,8 +116,6 @@ export type OnPostChangeActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
 }
-
-
 export type UpdateNewMessageBodyType = {
     type: 'UPDATE-NEW-MESSAGE-BODY'
     body: string

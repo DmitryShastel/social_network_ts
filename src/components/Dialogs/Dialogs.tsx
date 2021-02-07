@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useState} from "react";
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
@@ -7,20 +7,21 @@ import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../..
 
 type DialogsPropsType = {
     updateNewMessageBody: (body: string) => void
-    sendMessage: () => void
+    sendMessage: (body: string) => void
     dialogsPage: DialogPageType
 }
 
 export const Dialogs = (props:DialogsPropsType) => {
-
     let state = props.dialogsPage;
+    const [value, setValue] = useState(state.newMessageBody)
+
 
     let dialogsElements = state.dialogs.map((d: DialogType) => <DialogItem name={d.name} id={d.id}/>);
     let messagesElements = state.messages.map((m: MessageType) => <Message message={m.message}/>);
-    let newMessageBody = state.newMessageBody;
+
 
     let onSendMessageClick = () => {
-        props.sendMessage();
+        props.sendMessage(value);
 }
 
     let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,8 +39,8 @@ export const Dialogs = (props:DialogsPropsType) => {
                 <div>{messagesElements}</div>
                 <div>
                     <div><textarea placeholder = "Enter a message"
-                                   onChange={onNewMessageChange}
-                                   value = {newMessageBody}/></div>
+                                   onChange={(e) => setValue(e.currentTarget.value)}
+                                   value = {value}/></div>
                     <button onClick = {onSendMessageClick}>Send</button>
                 </div>
             </div>
