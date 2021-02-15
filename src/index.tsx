@@ -7,20 +7,19 @@ import store from "./redux/redux-store";
 import {Provider} from "react-redux";
 
 
-export let rerenderEntireTree = (): void => {
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store = {store}>
             <App/>
-            </Provider>
-        </BrowserRouter>,
-        document.getElementById("root")
-    )
-}
+        </Provider>
+    </BrowserRouter>,
+    document.getElementById("root")
+)
 
 
-rerenderEntireTree();
-store.subscribe(rerenderEntireTree);
+
+
+
 
 
 

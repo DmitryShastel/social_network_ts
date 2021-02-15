@@ -31,29 +31,4 @@ export const PostContainer = connect (mapStateToProps, mapDispatchToProps) (MyPo
 
 
 
-/*export const MyPostsContainer: React.FC = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                let state = store.getState();
-                let addPost = () => {
-                    store.dispatch(addPostActionCreater())
-                }
-                const onPostChange = (text: string) => {
-                    let action = updateNewPostTextActionCreater(text);
-                    store.dispatch(action)
-
-                }
-
-                return <MyPosts updateNewPostTextActionCreater = {onPostChange}
-                                addPost = {addPost}
-                                posts = {state.profilePage.posts}
-                                newPostText = {state.profilePage.newPostText}/>
-            }
-            }
-        </StoreContext.Consumer>
-    )
-}*/
-
 
