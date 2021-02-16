@@ -51,7 +51,7 @@ export type ActionType = AddPostActionType
     | UpdateNewMessageBodyType
 
 
- let store: StoreType = {
+  export let store: StoreType = {
     _state: {
         profilePage: {
             newPostText: "",

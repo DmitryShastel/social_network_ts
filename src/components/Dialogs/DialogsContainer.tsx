@@ -8,20 +8,20 @@ type MapStateToProps = {
     dialogsPage: DialogPageType
 }
 type MapDispatchToProps = {
-    updateNewMessageBody: () => void
-    sendMessage: (body: string) => void
+    updateNewMessageBody: (body: string) => void
+    sendMessage: () => void
 }
 let mapStateToPros = (state: StateType): MapStateToProps  => {
     return {
         dialogsPage: state.dialogsPage
     }
 }
-let mapDispatchToProps = (dispatch:(action: ActionType) => void): MapDispatchToProps => {
+let mapDispatchToProps = (dispatch: (action: ActionType) => void): MapDispatchToProps => {
     return {
-        updateNewMessageBody: () => {
+        sendMessage: () => {
             dispatch(sendMessageActionCreator());
         },
-        sendMessage: (body: string) => {
+        updateNewMessageBody: (body: string) => {
             dispatch(updateNewMessageBodyActionCreator(body))
         }
     }
