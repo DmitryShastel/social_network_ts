@@ -1,22 +1,39 @@
-import {
-    ActionType, DialogPageType, DialogsReducerType,
-    PostType,
-    SendMessageActionCreatorType,
-    StateType,
-    UpdateNewMessageBodyActionCreatorType
-} from "./state";
+import {DialogPageType, DialogType, MessageType} from "../components/Dialogs/Dialogs";
 
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
 const SEND_MESSAGE = 'SEND-MESSAGE'
 
+export type ActionsDialogsType = SendMessageActionType | UpdateNewMessageBodyActionType
+
 export const sendMessageActionCreator: SendMessageActionCreatorType = () => {
     return {type: SEND_MESSAGE}
 }
-export const updateNewMessageBodyActionCreator: UpdateNewMessageBodyActionCreatorType = (body) => {
-    return {type: UPDATE_NEW_MESSAGE_BODY, body: body}
+export const updateNewMessageBodyCreator: UpdateNewMessageBodyActionCreatorType = (body) => {
+  return {
+      type: UPDATE_NEW_MESSAGE_BODY,
+      body: body
+  }
 }
 
-let initialState = {
+export type DialogsReducerType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+    newMessageBody: string
+}
+export type UpdateNewMessageBodyActionType = {
+    type: 'UPDATE-NEW-MESSAGE-BODY',
+    body: string
+}
+export type SendMessageActionType = {
+    type: 'SEND-MESSAGE'
+}
+
+export type UpdateNewMessageBodyActionCreatorType = (body: string) => UpdateNewMessageBodyActionType
+export type SendMessageActionCreatorType = () => SendMessageActionType
+
+
+
+let initialState: DialogsReducerType = {
     messages: [
         {id: 1, message: 'Hi'},
         {id: 2, message: 'Hi'},
@@ -35,7 +52,7 @@ let initialState = {
     newMessageBody: "",
 }
 
-export const gialogReducer = (state: DialogsReducerType = initialState, action: ActionType): DialogPageType => {
+export const gialogReducer = (state: DialogsReducerType = initialState, action: ActionsDialogsType): DialogPageType => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
             return {

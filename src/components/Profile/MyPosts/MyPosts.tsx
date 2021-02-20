@@ -1,9 +1,16 @@
 import React from "react";
 import s from './MyPosts.module.css';
 import Post from './Post/Post'
-import {DispatchType, PostType, StoreType} from "../../../redux/state";
 
-
+export type ProfilePageType = {
+    newPostText: string
+    posts: Array<PostType>
+}
+export type PostType = {
+    id: number
+    message: string
+    likesCount: number
+}
 type MyPostsPropsType = {
     posts: Array<PostType>
     newPostText: string

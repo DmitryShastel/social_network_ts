@@ -1,12 +1,17 @@
 import React from "react";
-import {ActionType, StateType, StoreType} from "../../../redux/state";
-import {addPostActionCreater, updateNewPostTextActionCreater} from "../../../redux/profile-reducer";
+import {StateType} from "../../../redux/state";
+import {ActionsProfileType, addPostActionCreater, updateNewPostTextActionCreater} from "../../../redux/profile-reducer";
 import {MyPosts} from "./MyPosts";
 import {connect} from "react-redux";
 
-// export type MyPostsContainerPropsType = {
-//     store: StoreType
-// }
+/*type MapStateToProps = {
+    profilePage: ProfilePageType
+}*/
+
+type MapDispatchToProps = {
+    onPostChange: (text: string) => void
+    addPost: () => void
+}
 
 let mapStateToProps = (state: StateType) => {
     return {
@@ -14,7 +19,7 @@ let mapStateToProps = (state: StateType) => {
         newPostText: state.profilePage.newPostText
     }
 }
-let mapDispatchToProps = (dispatch: (action: ActionType) => void) => {
+let mapDispatchToProps = (dispatch: (action: ActionsProfileType) => void) => {
     return {
         onPostChange: (text: string) => {
             let action = updateNewPostTextActionCreater(text);
@@ -26,7 +31,7 @@ let mapDispatchToProps = (dispatch: (action: ActionType) => void) => {
     }
 }
 
-export const PostContainer = connect (mapStateToProps, mapDispatchToProps) (MyPosts)
+export const PostContainer = connect(mapStateToProps, mapDispatchToProps) (MyPosts)
 
 
 

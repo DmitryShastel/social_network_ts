@@ -1,16 +1,20 @@
-import {profileReducer} from "./profile-reducer";
-import {gialogReducer} from "./dialogs-reducer";
-import {sidebarReducer} from "./sidebar-reducer";
+import {ActionsProfileType} from "./profile-reducer";
+import {SidebarType} from "./sidebar-reducer";
+import {ActionsUsersType} from "./users-reducer";
+import {ProfilePageType} from "../components/Profile/MyPosts/MyPosts";
+import {DialogPageType} from "../components/Dialogs/Dialogs";
+import {ActionsDialogsType} from "./dialogs-reducer";
 
-export type MessageType = {
+
+/*export type MessageType = {
     id: number
     message: string
 }
 export type DialogType = {
     id: number
     name: string
-}
-export type PostType = {
+}*/
+/*export type PostType = {
     id: number
     message: string
     likesCount: number
@@ -18,19 +22,28 @@ export type PostType = {
 export type ProfilePageType = {
     newPostText: string
     posts: Array<PostType>
-}
-export type DialogPageType = {
+}*/
+/*export type DialogPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     newMessageBody: string
-}
-export type SidebarType = {}
+}*/
+
+/*export type SidebarType = {}*/
+
 
 export type StateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogPageType
     sidebar: SidebarType
 }
+
+/*export type ActionType = AddPostActionType
+    | OnPostChangeActionType
+    | FollowActionCreatorType
+    | UnfollowActionCreatorType
+    | SetUsersActionCreatorType*/
+
 
 export type StoreType = {
     _state: StateType
@@ -43,15 +56,10 @@ export type StoreType = {
 export type CallSubscriberType = () => void;
 export type SubscribeType = (state: CallSubscriberType) => void;
 export type GetStateType = () => StateType;
-export type DispatchType = (action: ActionType) => void
-
-export type ActionType = AddPostActionType
-    | OnPostChangeActionType
-    | SendMessageActionType
-    | UpdateNewMessageBodyType
+export type DispatchType = (action: ActionsDialogsType | ActionsProfileType | ActionsUsersType) => void
 
 
-  export let store: StoreType = {
+  /*export let store: StoreType = {
     _state: {
         profilePage: {
             newPostText: "",
@@ -78,7 +86,7 @@ export type ActionType = AddPostActionType
             ],
             newMessageBody: "",
         },
-        sidebar: {}
+        sidebar: {},
     },
     _callSubcsriber() {
         console.log('State was changed')
@@ -98,41 +106,55 @@ export type ActionType = AddPostActionType
 
         this._callSubcsriber();
     }
-}
+}*/
 
 
 //types ActionsCreators
-export type AddPostActionCreaterType = () => AddPostActionType
-export type UpdateNewPostTextActionCreaterType = (text:string) => OnPostChangeActionType
-export type UpdateNewMessageBodyActionCreatorType = (body: string) => UpdateNewMessageBodyType
-export type SendMessageActionCreatorType = () => SendMessageActionType
+//export type AddPostActionCreaterType = () => AddPostActionType
+//export type UpdateNewPostTextActionCreaterType = (text:string) => OnPostChangeActionType
+//export type UpdateNewMessageBodyActionCreatorType = (body: string) => UpdateNewMessageBodyType
+//export type SendMessageActionCreatorType = () => SendMessageActionType
+
+
 
 
 //types of Actions
-export type AddPostActionType = {
+/*export type UpdateNewMessageBodyType = {
+    type: 'UPDATE-NEW-MESSAGE-BODY',
+    newText: string
+}
+export type SendMessageActionType = {
+    type: 'SEND-MESSAGE'
+}*/
+
+
+
+/*export type AddPostActionType = {
     type: 'ADD-POST'
 }
 export type OnPostChangeActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
-}
-export type UpdateNewMessageBodyType = {
+}*/
+/*export type UpdateNewMessageBodyType = {
     type: 'UPDATE-NEW-MESSAGE-BODY'
     body: string
 }
 export type SendMessageActionType = {
     type: 'SEND-MESSAGE'
-}
+}*/
 
-//type of reducers(profile, dialog, sidebar)
-export type ProfileReducerType = {
+//type of reducers(profile, dialog, sidebar, users)
+/*export type ProfileReducerType = {
     posts: Array<PostType>
     newPostText: string
-}
-export type DialogsReducerType = {
+}*/
+/*export type DialogsReducerType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     newMessageBody: string
-}
-export type SidebarReducerType = any
+}*/
+
+
+/*export type SidebarReducerType = any*/
 
