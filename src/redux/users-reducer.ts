@@ -3,12 +3,17 @@ export type ActionsUsersType = | FollowActionCreatorType
     | SetUsersActionCreatorType
 
 export type UsersPropsType = {
-    photoUrl: string
+    userPhoto: string
+    //photoUrl: string
     id: number
     followed: boolean
     fullName: string
     status: string
     location: {city: string, country: string}
+    photos: {
+        small: string,
+        //large: string
+    }
 }
 export type UsersReducerType = {
     users: Array<UsersPropsType>
@@ -25,7 +30,6 @@ export type SetUsersActionCreatorType = {
     type: 'SET-USERS',
     users: Array<UsersPropsType>
 }
-
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
