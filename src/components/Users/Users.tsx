@@ -23,7 +23,6 @@ export let Users = (props: UserType) => {
         }
     }
 
-
     return <div>
         <button onClick={getUsers}>Get Users</button>
         {
@@ -42,7 +41,6 @@ export let Users = (props: UserType) => {
                                     props.follow(u.id)
                                 }}></button>
                         }
-
                     </div>
                 </span>
                 <span>
@@ -58,8 +56,4 @@ export let Users = (props: UserType) => {
             </div>)
         }
     </div>
-
-
-
-
 }

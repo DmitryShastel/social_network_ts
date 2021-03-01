@@ -9,6 +9,7 @@ export type UsersPropsType = {
     followed: boolean
     fullName: string
     status: string
+    name: string
     location: {city: string, country: string}
     photos: {
         small: string,
