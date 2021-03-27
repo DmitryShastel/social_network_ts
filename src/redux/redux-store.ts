@@ -11,7 +11,7 @@ let reducers = combineReducers({
     profilePage :profileReducer,
     dialogsPage :gialogReducer,
     sidebar :sidebarReducer,
-    userPage: usersReducer
+    usersPage: usersReducer
 });
 
 

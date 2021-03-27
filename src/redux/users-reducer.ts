@@ -1,6 +1,8 @@
 export type ActionsUsersType = | FollowActionCreatorType
     | UnfollowActionCreatorType
     | SetUsersActionCreatorType
+    | SetCurrentPageCreatorType
+    | setTotalCountActionCreatorType
 
 export type UsersPropsType = {
     userPhoto: string
@@ -18,6 +20,9 @@ export type UsersPropsType = {
 }
 export type UsersReducerType = {
     users: Array<UsersPropsType>
+    pageSize: number   ////????
+    totalUsersCount: number   ////????
+    currentPage: number //???
 }
 export type FollowActionCreatorType = {
     type: 'FOLLOW',
@@ -31,42 +36,26 @@ export type SetUsersActionCreatorType = {
     type: 'SET-USERS',
     users: Array<UsersPropsType>
 }
+export type SetCurrentPageCreatorType = {
+    type: 'SET-CURRENT-PAGE'
+    currentPage: number
+}
+export type setTotalCountActionCreatorType = {
+    type: 'SET_TOTAL_COUNT'
+    totalCount: number
+}
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
-
-export const followAC = (userId: number):FollowActionCreatorType => ({type: FOLLOW, userId});
-export const unfollowAC = (userId: number): UnfollowActionCreatorType => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users: Array<UsersPropsType>): SetUsersActionCreatorType=> ({type: SET_USERS, users})
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
 
 let initialState: UsersReducerType = {
-    users: [
-        /*{
-            id: 1,
-            followed: true,
-            fullName: 'Dima',
-            status: 'I am boss',
-            location: {city: 'Minsk', country: 'Belarus'},
-            photoUrl: 'https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png'
-        },
-        {
-            id: 2,
-            followed: true,
-            fullName: 'Denis',
-            status: 'I am boss too',
-            location: {city: 'Moscow', country: 'Russia'},
-            photoUrl: 'https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png'
-        },
-        {
-            id: 3,
-            followed: true,
-            fullName: 'Sasha',
-            status: 'I am boss too',
-            location: {city: 'Kiev', country: 'Ukraine'},
-            photoUrl: 'https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png'
-        }*/
-    ]
+    users: [],
+    pageSize: 100,
+    totalUsersCount: 19,
+    currentPage: 2
 }
 
 export const usersReducer = (state: UsersReducerType = initialState, action: ActionsUsersType) => {
@@ -94,12 +83,23 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
             }
         case SET_USERS:
             return {
-                ...state, users: [...state.users, ...action.users]
+                ...state, users:action.users
             }
+        case SET_CURRENT_PAGE: {
+            return {...state, currentPage: action.currentPage}
+        }
+        case SET_TOTAL_COUNT: {
+            return {...state, totalUsersCount: action.totalCount}
+        }
         default:
             return state
 
     }
 }
 
+export const followAC = (userId: number):FollowActionCreatorType => ({type: FOLLOW, userId});
+export const unfollowAC = (userId: number): UnfollowActionCreatorType => ({type: UNFOLLOW, userId});
+export const setUsersAC = (users: Array<UsersPropsType>): SetUsersActionCreatorType=> ({type: SET_USERS, users})
+export const setCurrentPageAC = (currentPage: number): SetCurrentPageCreatorType => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCountAC = (totalCount: number): setTotalCountActionCreatorType => ({type: SET_TOTAL_COUNT, totalCount })
 
