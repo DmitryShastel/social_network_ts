@@ -53,9 +53,9 @@ const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
 
 let initialState: UsersReducerType = {
     users: [],
-    pageSize: 100,
-    totalUsersCount: 19,
-    currentPage: 2
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 export const usersReducer = (state: UsersReducerType = initialState, action: ActionsUsersType) => {
