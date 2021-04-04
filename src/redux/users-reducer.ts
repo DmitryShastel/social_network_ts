@@ -2,7 +2,8 @@ export type ActionsUsersType = | FollowActionCreatorType
     | UnfollowActionCreatorType
     | SetUsersActionCreatorType
     | SetCurrentPageCreatorType
-    | setTotalCountActionCreatorType
+    | SetTotalCountActionCreatorType
+    | ToggleIsFeatcingActionCreatorType
 
 export type UsersPropsType = {
     userPhoto: string
@@ -23,6 +24,7 @@ export type UsersReducerType = {
     pageSize: number   ////????
     totalUsersCount: number   ////????
     currentPage: number //???
+    isFetching: boolean
 }
 export type FollowActionCreatorType = {
     type: 'FOLLOW',
@@ -40,9 +42,13 @@ export type SetCurrentPageCreatorType = {
     type: 'SET-CURRENT-PAGE'
     currentPage: number
 }
-export type setTotalCountActionCreatorType = {
+export type SetTotalCountActionCreatorType = {
     type: 'SET_TOTAL_COUNT'
     totalCount: number
+}
+export type ToggleIsFeatcingActionCreatorType = {
+    type: 'TOGGLE_IS_FETCHING'
+    isFetching: boolean
 }
 
 const FOLLOW = 'FOLLOW'
@@ -50,12 +56,14 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState: UsersReducerType = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 }
 
 export const usersReducer = (state: UsersReducerType = initialState, action: ActionsUsersType) => {
@@ -91,6 +99,9 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
         case SET_TOTAL_COUNT: {
             return {...state, totalUsersCount: action.totalCount}
         }
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
         default:
             return state
 
@@ -101,5 +112,5 @@ export const followAC = (userId: number):FollowActionCreatorType => ({type: FOLL
 export const unfollowAC = (userId: number): UnfollowActionCreatorType => ({type: UNFOLLOW, userId});
 export const setUsersAC = (users: Array<UsersPropsType>): SetUsersActionCreatorType=> ({type: SET_USERS, users})
 export const setCurrentPageAC = (currentPage: number): SetCurrentPageCreatorType => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCountAC = (totalCount: number): setTotalCountActionCreatorType => ({type: SET_TOTAL_COUNT, totalCount })
-
+export const setTotalUsersCountAC = (totalCount: number): SetTotalCountActionCreatorType => ({type: SET_TOTAL_COUNT, totalCount })
+export const toggleIsFetchingAC = (isFetching: boolean): ToggleIsFeatcingActionCreatorType => ({type: TOGGLE_IS_FETCHING, isFetching})
