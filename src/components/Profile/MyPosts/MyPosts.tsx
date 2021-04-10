@@ -5,6 +5,7 @@ import Post from './Post/Post'
 export type ProfilePageType = {
     newPostText: string
     posts: Array<PostType>
+    profile: any
 }
 export type PostType = {
     id: number
