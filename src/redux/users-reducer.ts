@@ -108,9 +108,9 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
     }
 }
 
-export const followAC = (userId: number):FollowActionCreatorType => ({type: FOLLOW, userId});
-export const unfollowAC = (userId: number): UnfollowActionCreatorType => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users: Array<UsersPropsType>): SetUsersActionCreatorType=> ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage: number): SetCurrentPageCreatorType => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCountAC = (totalCount: number): SetTotalCountActionCreatorType => ({type: SET_TOTAL_COUNT, totalCount })
-export const toggleIsFetchingAC = (isFetching: boolean): ToggleIsFeatcingActionCreatorType => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const follow = (userId: number):FollowActionCreatorType => ({type: FOLLOW, userId});
+export const unfollow = (userId: number): UnfollowActionCreatorType => ({type: UNFOLLOW, userId});
+export const setUsers = (users: Array<UsersPropsType>): SetUsersActionCreatorType=> ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage: number): SetCurrentPageCreatorType => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCount = (totalCount: number): SetTotalCountActionCreatorType => ({type: SET_TOTAL_COUNT, totalCount })
+export const toggleIsFetching = (isFetching: boolean): ToggleIsFeatcingActionCreatorType => ({type: TOGGLE_IS_FETCHING, isFetching})

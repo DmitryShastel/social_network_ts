@@ -2,7 +2,16 @@ import React from "react";
 import styles from "./users.module.css";
 import {UsersPropsType} from "../../redux/users-reducer";
 import userPhoto from "../../assets/images/user-icon.jpg";
-import {UserType} from "./UsersContainer";
+
+export type UserType = {
+    users: Array<UsersPropsType>
+    follow: (id: number) => void
+    unfollow: (id: number) => void
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: (pageNumber: number) => void
+}
 
 export let Users = (props: UserType) => {
 
