@@ -32,7 +32,6 @@ class ProfileContainer extends React.Component <ProfileContainerType & RouteComp
     }
 
     render() {
-        debugger;
         return (
             <div>
                 <Profile {...this.props}
