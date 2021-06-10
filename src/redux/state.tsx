@@ -36,6 +36,10 @@ export type StateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogPageType
     sidebar: SidebarType
+    auth: {
+        isAuth: boolean,
+        login: string,
+    }
 }
 
 /*export type ActionType = AddPostActionType

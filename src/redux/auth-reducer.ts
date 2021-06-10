@@ -2,47 +2,42 @@ const SET_USER_DATA = 'SET_USER_DATA'
 
 export type ActionsAuthType = setUserDataACType
 
-export const setUserDataAC: any = (userId: string, email: string, login: string) => {
-    return {type: SET_USER_DATA,
-            data: {userId, email, login},
-    }
-}
-
 export type setUserDataACType = {
     type: 'SET_USER_DATA',
-    data: {
-        userId: string,
-        email: string,
-        login: string
-    }
+    data: UserDataType
 }
 
 
-export type AuthReducerType = {
-
-}
-export type InitialStateType = {
+export type UserDataType = {
     userId: string,
     email: string,
     login: string,
 }
 
 
-let initialState: InitialStateType = {
-    userId: '',
-    email: '',
-    login: '',
+let initialState = {
+    userId: null,
+    email: null,
+    login: null,
+    isAuth: false,
 }
 
-export const authReducer = (state: AuthReducerType = initialState, action: ActionsAuthType): AuthReducerType => {
+export const authReducer = (state= initialState, action: ActionsAuthType) => {
     switch (action.type) {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data
+                ...action.data,
+                isAuth: true,
             };
         default:
             return state;
+    }
+}
+
+export const setAuthUserDataAC: any = (userId: string, email: string, login: string): setUserDataACType => {
+    return {type: SET_USER_DATA,
+        data: {userId, email, login},
     }
 }
 
