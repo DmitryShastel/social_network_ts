@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="81034f75-93dc-4d7f-b571-13a68e654fa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/users-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../social_network(js)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -159,7 +156,9 @@
       <workItem from="1618938776418" duration="4198000" />
       <workItem from="1620106532123" duration="150000" />
       <workItem from="1620110473876" duration="2240000" />
-      <workItem from="1623090779695" duration="11372000" />
+      <workItem from="1623090779695" duration="12298000" />
+      <workItem from="1623692759275" duration="3154000" />
+      <workItem from="1623949898656" duration="300000" />
     </task>
     <servers />
   </component>
@@ -167,26 +166,26 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="472" y="125" key="FileChooserDialogImpl" timestamp="1623348462030">
+    <state x="472" y="125" key="FileChooserDialogImpl" timestamp="1623947904953">
       <screen x="64" y="0" width="1216" height="720" />
     </state>
-    <state x="472" y="125" key="FileChooserDialogImpl/64.0.1216.720@64.0.1216.720" timestamp="1623348462030" />
-    <state width="1191" height="243" key="GridCell.Tab.0.bottom" timestamp="1623351716185">
+    <state x="472" y="125" key="FileChooserDialogImpl/64.0.1216.720@64.0.1216.720" timestamp="1623947904953" />
+    <state width="1180" height="262" key="GridCell.Tab.0.bottom" timestamp="1623950116004">
       <screen x="64" y="0" width="1216" height="720" />
     </state>
-    <state width="1191" height="243" key="GridCell.Tab.0.bottom/64.0.1216.720@64.0.1216.720" timestamp="1623351716185" />
-    <state width="1191" height="243" key="GridCell.Tab.0.center" timestamp="1623351716185">
+    <state width="1180" height="262" key="GridCell.Tab.0.bottom/64.0.1216.720@64.0.1216.720" timestamp="1623950116004" />
+    <state width="1180" height="262" key="GridCell.Tab.0.center" timestamp="1623950116003">
       <screen x="64" y="0" width="1216" height="720" />
     </state>
-    <state width="1191" height="243" key="GridCell.Tab.0.center/64.0.1216.720@64.0.1216.720" timestamp="1623351716185" />
-    <state width="1191" height="243" key="GridCell.Tab.0.left" timestamp="1623351716185">
+    <state width="1180" height="262" key="GridCell.Tab.0.center/64.0.1216.720@64.0.1216.720" timestamp="1623950116003" />
+    <state width="1180" height="262" key="GridCell.Tab.0.left" timestamp="1623950116003">
       <screen x="64" y="0" width="1216" height="720" />
     </state>
-    <state width="1191" height="243" key="GridCell.Tab.0.left/64.0.1216.720@64.0.1216.720" timestamp="1623351716185" />
-    <state width="1191" height="243" key="GridCell.Tab.0.right" timestamp="1623351716185">
+    <state width="1180" height="262" key="GridCell.Tab.0.left/64.0.1216.720@64.0.1216.720" timestamp="1623950116003" />
+    <state width="1180" height="262" key="GridCell.Tab.0.right" timestamp="1623950116003">
       <screen x="64" y="0" width="1216" height="720" />
     </state>
-    <state width="1191" height="243" key="GridCell.Tab.0.right/64.0.1216.720@64.0.1216.720" timestamp="1623351716185" />
+    <state width="1180" height="262" key="GridCell.Tab.0.right/64.0.1216.720@64.0.1216.720" timestamp="1623950116003" />
     <state x="346" y="159" key="run.anything.popup" timestamp="1617036550569">
       <screen x="64" y="0" width="1216" height="720" />
     </state>

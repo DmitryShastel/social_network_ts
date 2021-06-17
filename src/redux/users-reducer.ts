@@ -60,9 +60,9 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState: UsersReducerType = {
     users: [],
-    pageSize: 100,
+    pageSize: 4,
     totalUsersCount: 0,
-    currentPage: 1,
+    currentPage: 2,
     isFetching: true
 }
 
