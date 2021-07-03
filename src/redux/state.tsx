@@ -1,10 +1,42 @@
 import {ActionsProfileType} from "./profile-reducer";
 import {SidebarType} from "./sidebar-reducer";
-import {ActionsUsersType} from "./users-reducer";
+import {ActionsUsersType, UsersPropsType} from "./users-reducer";
 import {ProfilePageType} from "../components/Profile/MyPosts/MyPosts";
 import {DialogPageType} from "../components/Dialogs/Dialogs";
 import {ActionsDialogsType} from "./dialogs-reducer";
 
+
+export type StateType = {
+    profilePage: ProfilePageType,
+    dialogsPage: DialogPageType,
+    sidebar: SidebarType,
+    usersPage: {
+        users: Array<UsersPropsType>,
+        pageSize: number,
+        totalUsersCount: number,
+        currentPage: number,
+        isFetching: boolean,
+        followingInProgress: Array<number>,
+    }
+    auth: {
+        isAuth: boolean,
+        login: string,
+    }
+}
+
+
+export type StoreType = {
+    _state: StateType
+    _callSubcsriber: CallSubscriberType
+    getState: GetStateType
+    subscribe: SubscribeType
+    dispatch: DispatchType
+}
+
+export type CallSubscriberType = () => void;
+export type SubscribeType = (state: CallSubscriberType) => void;
+export type GetStateType = () => StateType;
+export type DispatchType = (action: ActionsDialogsType | ActionsProfileType | ActionsUsersType) => void
 
 /*export type MessageType = {
     id: number
@@ -32,15 +64,7 @@ export type ProfilePageType = {
 /*export type SidebarType = {}*/
 
 
-export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogPageType
-    sidebar: SidebarType
-    auth: {
-        isAuth: boolean,
-        login: string,
-    }
-}
+
 
 /*export type ActionType = AddPostActionType
     | OnPostChangeActionType
@@ -49,18 +73,7 @@ export type StateType = {
     | SetUsersActionCreatorType*/
 
 
-export type StoreType = {
-    _state: StateType
-    _callSubcsriber: CallSubscriberType
-    getState: GetStateType
-    subscribe: SubscribeType
-    dispatch: DispatchType
-}
 
-export type CallSubscriberType = () => void;
-export type SubscribeType = (state: CallSubscriberType) => void;
-export type GetStateType = () => StateType;
-export type DispatchType = (action: ActionsDialogsType | ActionsProfileType | ActionsUsersType) => void
 
 
   /*export let store: StoreType = {
